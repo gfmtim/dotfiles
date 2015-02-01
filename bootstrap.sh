@@ -2,7 +2,6 @@
  
 dir=~/src/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files=".bashrc .vimrc .vim"        # list of files/folders to symlink in homedir
  
 ##########
  
@@ -21,5 +20,5 @@ for file in `ls $dir | grep -v bootstrap`; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file $olddir/$file
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    ln -fsn $dir/$file ~/.$file
 done
